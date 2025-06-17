@@ -37,5 +37,6 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: AKIA...XYZ
       AWS_SECRET_ACCESS_KEY: abc123...
+    run: echo 'check issue'  
   - name: first pipeline
     run: echo 'Hello new pipeline'
