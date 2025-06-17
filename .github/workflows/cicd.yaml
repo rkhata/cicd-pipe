@@ -24,7 +24,7 @@ jobs:
      sudo apt-get install trivy
 
   - name: Trivy Scan
-    run: trivy fs --format table -o fs-table.json
+    run: trivy fs --format table -o fs-report.json .
 
   - name: first pipeline
     run: echo 'Hello new pipeline'
