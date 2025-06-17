@@ -15,7 +15,16 @@ jobs:
      java-version: '17'
      distribution: 'temurin'
      cache: maven
-  - name: build project
-    run: mvn package
+  - name: Trivy Install
+    run: | 
+     sudo apt-get install wget apt-transport-https gnupg lsb-release
+     wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+     echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+     sudo apt-get update
+     sudo apt-get install trivy
+
+  - name: Trivy Scan
+    run: trivy fs --format table -o fs-table.json
+
   - name: first pipeline
     run: echo 'Hello new pipeline'
