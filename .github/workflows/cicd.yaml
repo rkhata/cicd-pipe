@@ -28,11 +28,13 @@ jobs:
      sudo apt-get install trivy -y
 
   - name: Trivy Scan
-    run: trivy fs --format table -o fs-report.json .
+    # run: trivy fs --format table -o fs-report.json .
+    run: trivy fs --scanners config,secret --format table -o fs-report.txt .
   - name: Gitleaks Installation
     run: sudo apt install gitleaks -y
   - name: Gitleaks Code Scan
-    run: gitleaks detect source . -r gitleaks-report.json -f json  
+    # run: gitleaks detect source . -r gitleaks-report.json -f json  
+    run: gitleaks detect --source . --report-format json --report-path=gitleaks-report.json
   - name: Deploy to S3
     env:
       AWS_ACCESS_KEY_ID: 'AKIA...XYZ'
