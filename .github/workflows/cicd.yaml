@@ -24,8 +24,8 @@ jobs:
      sudo apt-get install wget apt-transport-https gnupg lsb-release
      wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
      echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
-     sudo apt-get update
-     sudo apt-get install trivy
+     sudo apt-get update -y
+     sudo apt-get install trivy -y
 
   - name: Trivy Scan
     run: trivy fs --format table -o fs-report.json .
@@ -35,8 +35,8 @@ jobs:
     run: gitleaks detect source . -r gitleaks-report.json -f json  
   - name: Deploy to S3
     env:
-      AWS_ACCESS_KEY_ID: AKIA...XYZ
-      AWS_SECRET_ACCESS_KEY: abc123...
+      AWS_ACCESS_KEY_ID: 'AKIA...XYZ'
+      AWS_SECRET_ACCESS_KEY: 'abc123...'
     run: echo 'check issue'  
   - name: first pipeline
     run: echo 'Hello new pipeline'
