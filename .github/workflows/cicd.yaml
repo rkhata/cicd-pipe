@@ -37,8 +37,8 @@ jobs:
     run: gitleaks detect --source . --report-format json --report-path=gitleaks-report.json
   - name: Deploy to S3
     env:
-      AWS_ACCESS_KEY_ID: 'AKIA...XYZuiuiuiuiuiui09909090909090909090909090909'
-      AWS_SECRET_ACCESS_KEY: 'abc123...@#@@#@#@DSDSDSDS@#@@**%%$%W#$#'
+      AWS_ACCESS_KEY_ID: AKIA1234567890EXAMPLE
+      AWS_SECRET_ACCESS_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
     run: echo 'check issue'  
   - name: first pipeline
     run: echo 'Hello new pipeline'
