@@ -33,6 +33,9 @@ jobs:
     run: sudo apt install gitleaks -y
   - name: Gitleaks Code Scan
     run: gitleaks detect source . -r gitleaks-report.json -f json  
-
+  - name: Deploy to S3
+    env:
+      AWS_ACCESS_KEY_ID: AKIA...XYZ
+      AWS_SECRET_ACCESS_KEY: abc123...
   - name: first pipeline
     run: echo 'Hello new pipeline'
