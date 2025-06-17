@@ -1,0 +1,10 @@
+name: cicd pipeline
+on:
+ push:
+  branches: ['main']
+jobs:
+ first:
+  runs-on: ubuntu-latest
+  steps:
+  - name: first pipeline
+    run: echo 'Hello new pipeline'
