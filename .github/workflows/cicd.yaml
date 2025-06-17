@@ -12,7 +12,9 @@ jobs:
   - name: Set up Java
     uses: actions/setup-java@v4
     with:
-     java-version: 17
+     java-version: '17'
+     distribution: 'temurin'
+     cache: maven
      description: 'Install Java 17'
   - name: build project
     run: mvn -B package --file pom.xml
