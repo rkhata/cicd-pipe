@@ -16,6 +16,6 @@ jobs:
      distribution: 'temurin'
      cache: maven
   - name: build project
-    run: mvn -B package
+    run: mvn package
   - name: first pipeline
     run: echo 'Hello new pipeline'
