@@ -9,5 +9,12 @@ jobs:
   steps:
   - name: Checkout
     uses: actions/checkout@v4
+  - name: Set up Java
+    uses: actions/setup-java@v4
+    with:
+     java-version: 17
+     description: 'Install Java 17'
+  - name: build project
+    run: mvn -B package --file pom.xml
   - name: first pipeline
     run: echo 'Hello new pipeline'
